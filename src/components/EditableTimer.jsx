@@ -31,6 +31,7 @@ export class EditableTimer extends Component {
                     id={this.props.id}
                     title={this.props.title}
                     project={this.props.project}
+                    runningSince={this.props.runningSince}
                     openForm={this.openForm}
                 />
                 }

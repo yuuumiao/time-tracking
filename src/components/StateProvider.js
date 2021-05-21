@@ -57,6 +57,18 @@ export class StateProvider extends React.Component {
         .catch((error) => this.setState({isLoading: false }))
     };
 
+    startTimer = (timerId) => {
+      const now = Date.now()
+      apiHandler
+        .updateOneTimer(timerId, {runningSince: now})
+        .then((data) => this.setState({
+        timers: this.state.timers.map((timer) => {
+          return timer.id === timerId ? data : timer
+        })
+      })
+      )
+    }
+
   
     render() {
       const contextValue = {
@@ -65,7 +77,8 @@ export class StateProvider extends React.Component {
         timers: this.state.timers,
         createTimer: this.createTimer,
         updateTimer: this.updateTimer,
-        removeTimer: this.removeTimer
+        removeTimer: this.removeTimer,
+        startTimer :this.startTimer
       };
   
       return (

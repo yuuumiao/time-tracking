@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { StateContext } from "./StateProvider"
+import { millisecondsToReadable } from './helpers'
 
 export class Timer extends Component {
     static contextType = StateContext;
 
     render() {
+     // console.log("runningsince form timer", this.props.runningSince)
+      const readableTime = millisecondsToReadable(this.props.runningSince)
         return (
             <div className='ui centered card'>
             <div className='content'>
@@ -16,7 +19,7 @@ export class Timer extends Component {
               </div>
               <div className='center aligned description'>
                 <h2>
-                    formated time placeholder
+                    {readableTime}
                   {/* {elapsedString} */}
                 </h2>
               </div>
@@ -32,7 +35,7 @@ export class Timer extends Component {
               </div>
             </div>
             <div className='ui bottom attached blue basic button'>
-                <button>Start</button>
+                <button onClick={()=>this.context.startTimer(this.props.id)}>Start</button>
             </div>
           </div>
         )
