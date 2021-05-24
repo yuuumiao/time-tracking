@@ -6,6 +6,8 @@ import "@fontsource/roboto"
 import Button from '@material-ui/core/Button'
 import DeleteIcon from '@material-ui/icons/Delete'
 import EditIcon from '@material-ui/icons/Edit'
+import Divider from '@material-ui/core/Divider';
+
 
 
 
@@ -36,20 +38,15 @@ export class Timer extends Component {
               </div>
               <div className='center aligned description'>
                 <h2>
-                    {/* {readableTime} */}
                   {elapsedString}
                 </h2>
               </div>
               <div className='extra content'>
                 <span className='right floated edit icon'>
-                    {/* <button onClick={this.props.openForm}>Edit</button> */}
                     <EditIcon onClick={this.props.openForm}/>
-                  {/* <i className='edit icon' /> */}
                 </span>
                 <span className='right floated trash icon'>
-                  {/* <button onClick={()=> this.context.removeTimer(this.props.id)}>Delete</button> */}
                   <DeleteIcon onClick={()=> this.context.removeTimer(this.props.id)}/>
-                  {/* <i className='trash icon' /> */}
                 </span>
               </div>
             </div>
@@ -60,8 +57,8 @@ export class Timer extends Component {
                 :
                 <Button variant="contained" color="primary"onClick={()=>this.context.startTimer(this.props.id)}>Start</Button>
     }
-
             </div>
+          <Divider />
           </div>
         )
     }

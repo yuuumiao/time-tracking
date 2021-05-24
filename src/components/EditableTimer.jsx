@@ -12,7 +12,6 @@ export class EditableTimer extends Component {
     }
 
     openForm=()=> {
-         //console.log(this.state)
         this.setState({ editFormOpen: true })
     }
 

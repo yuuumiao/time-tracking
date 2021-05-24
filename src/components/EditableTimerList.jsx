@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import EditableTimer from './EditableTimer'
 import { StateContext } from "./StateProvider"
-import ToggleableTimerForm from './ToggleableTimerForm';
+import ToggleableTimerForm from './ToggleableTimerForm'
+
 
 export class EditableTimerList extends Component {
     static contextType = StateContext;
