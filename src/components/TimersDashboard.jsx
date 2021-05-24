@@ -3,7 +3,6 @@ import EditableTimerList from './EditableTimerList'
 import { StateContext } from "./StateProvider"
 
 
-
 class TimersDashboard extends Component {
     static contextType = StateContext;
 

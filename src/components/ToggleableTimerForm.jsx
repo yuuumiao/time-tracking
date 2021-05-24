@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TimerForm from './TimerForm'
 
+import AddIcon from '@material-ui/icons/Add'
 
 export class ToggleableTimerForm extends Component {
     state={
@@ -18,14 +19,14 @@ export class ToggleableTimerForm extends Component {
     render() {
         return (
             <div>
-                ToggleableTimerForm 
-                {this.state.isOpen? 
-                <TimerForm 
-                submitText='Create'
-                closeToggleableForm={this.closeToggleableForm}
-                /> 
-                : 
-                <button onClick={this.openToggleableForm}>add form</button>
+                {this.state.isOpen
+                    ? 
+                    <TimerForm 
+                    submitText='Create'
+                    closeToggleableForm={this.closeToggleableForm}
+                    /> 
+                    : 
+                    <AddIcon onClick={this.openToggleableForm} />
                 }
             </div>
         )

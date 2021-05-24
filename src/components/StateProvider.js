@@ -16,7 +16,6 @@ export class StateProvider extends React.Component {
           this.setState({ timers: data, isLoading: false });
         })
         .catch((error) => {
-        //   this.setState({ isLoggedIn: false, isLoading: false });
             console.log(error)
         });
     }
@@ -39,9 +38,7 @@ export class StateProvider extends React.Component {
                       title: infos.title,
                       project: infos.project,
                     });
-                  } else {
-                    return timer;
-                  }
+                  } else return timer;
                 }),
               }))
             .catch((error) => this.setState({isLoading: false }))
@@ -59,14 +56,41 @@ export class StateProvider extends React.Component {
 
     startTimer = (timerId) => {
       const now = Date.now()
-      apiHandler
-        .updateOneTimer(timerId, {runningSince: now})
-        .then((data) => this.setState({
+      this.setState({
         timers: this.state.timers.map((timer) => {
-          return timer.id === timerId ? data : timer
+          if (timer.id === timerId) {
+            return Object.assign({}, timer, {
+              runningSince: now,
+            });
+          } else return timer;
         })
       })
-      )
+
+      const modifiedTimer = [...this.state.timers].filter(x => x.id===timerId)[0]
+      apiHandler.updateOneTimer(timerId, {
+          runningSince: modifiedTimer.runningSince,
+          elapsed: modifiedTimer.elapsed
+      })
+    }
+
+    stopTimer = (timerId) => {
+      const now = Date.now()
+      this.setState({
+        timers: this.state.timers.map((timer) => {
+           if(timerId === timer.id){
+             const lastElapsed = now - timer.runningSince
+             return Object.assign({}, timer, {
+               elapsed: lastElapsed + (timer.elapsed || 0),
+               runningSince: null
+             })
+        }else return timer
+      })
+      })  
+      const modifiedTimer = [...this.state.timers].filter(x => x.id===timerId)[0]
+      apiHandler.updateOneTimer(timerId, {
+          runningSince: modifiedTimer.runningSince,
+          elapsed: modifiedTimer.elapsed
+      })
     }
 
   
@@ -78,7 +102,8 @@ export class StateProvider extends React.Component {
         createTimer: this.createTimer,
         updateTimer: this.updateTimer,
         removeTimer: this.removeTimer,
-        startTimer :this.startTimer
+        startTimer :this.startTimer,
+        stopTimer: this.stopTimer
       };
   
       return (

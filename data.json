@@ -1,16 +1,11 @@
 {
   "timers": [
     {
-      "title": "d",
-      "project": "c",
+      "runningSince": 1621855560935,
       "id": 1,
-      "runningSince": 1621608664014
-    },
-    {
-      "title": "gegeg",
-      "project": "hahah",
-      "id": 2,
-      "runningSince": 1621604553322
+      "title": "hello",
+      "project": "Adele",
+      "elapsed": 1705329
     }
   ]
 }

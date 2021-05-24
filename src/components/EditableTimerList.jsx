@@ -7,7 +7,6 @@ export class EditableTimerList extends Component {
     static contextType = StateContext;
 
     render() {
-        console.log("editable timers list",this.context.timers)
         return (
             <div>
                 {this.context.timers.map(timer => {
@@ -17,6 +16,7 @@ export class EditableTimerList extends Component {
                     title={timer.title}
                     project={timer.project}
                     runningSince={timer.runningSince}
+                    elapsed={timer.elapsed}
                     onFormSubmit={this.props.onFormSubmit}
                     />
                 })}
