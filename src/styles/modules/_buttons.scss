@@ -1,0 +1,6 @@
+@use '../abstracts/' as a;
+
+.MuiButton-containedPrimary {
+  background-color: a.$primaryGreen;
+  color: a.$primaryGrey;
+}

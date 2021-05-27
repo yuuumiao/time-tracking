@@ -1,0 +1,40 @@
+$color-green: #4b8b3b;
+$color-grey: #333;
+$primay-font: Roboto, sans-serif;
+$secondary-font: Helvetica;
+$font-size: 1.1rem;
+
+@mixin flexbox($flexDirection: column) {
+  display: flex;
+  flex-direction: $flexDirection;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: $primay-font;
+  font-size: $font-size;
+  text-transform: uppercase;
+  color: $color-grey;
+}
+
+.Timer {
+  @include flexbox;
+}
+
+.Timer_title,
+.Timer_project {
+  padding: 0.1rem;
+}
+
+.Timer__time {
+  font-weight: 900;
+  font-size: 2rem;
+  font-family: $secondary-font;
+  padding: 0.2rem;
+}
+
+.MuiButton-containedPrimary {
+  background-color: $color-green !important;
+}

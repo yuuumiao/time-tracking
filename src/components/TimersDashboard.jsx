@@ -1,21 +1,18 @@
-import React, { Component } from 'react'
-import EditableTimerList from './EditableTimerList'
-import { StateContext } from "./StateProvider"
-
+import React, { Component } from "react";
+import EditableTimerList from "./EditableTimerList";
+import { StateContext } from "./StateProvider";
+// import "../styles/style.css";
 
 class TimersDashboard extends Component {
-    static contextType = StateContext;
+  static contextType = StateContext;
 
-    render() {
-        // if(!this.state.timers) return <div>LOADING</div>
-        return (
-            <div>
-                <EditableTimerList 
-                    onFormSubmit={this.handleEditFormSubmit}
-                />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <EditableTimerList onFormSubmit={this.handleEditFormSubmit} />
+      </div>
+    );
+  }
 }
 
-export default TimersDashboard
+export default TimersDashboard;
