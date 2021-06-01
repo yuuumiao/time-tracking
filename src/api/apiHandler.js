@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const service = axios.create({
-  baseURL: 'http://localhost:3000/',
+  baseURL:
+    "https://my-json-server.typicode.com/yuuumiao/time-tracking-json-server",
+  //process.env.REACT_APP_BACKEND_URL
   withCredentials: true,
 });
 
@@ -13,35 +15,36 @@ function errorHandler(error) {
   throw error;
 }
 
-export default {
+const apiHandler = {
   service,
 
   getAllTimers() {
     return service
-      .get("timers")
+      .get("/timers")
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
   createOneTimer(timer) {
     return service
-      .post("timers", timer)
+      .post("/timers", timer)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
   updateOneTimer(id, timer) {
     return service
-      .patch(`timers/${id}`, timer)
+      .patch(`/timers/${id}`, timer)
       .then((res) => res.data)
       .catch(errorHandler);
   },
 
   deleteOneTimer(id) {
     return service
-      .delete(`timers/${id}`)
+      .delete(`/timers/${id}`)
       .then((res) => res.data)
       .catch(errorHandler);
   },
-
 };
+
+export default apiHandler;

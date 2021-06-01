@@ -10,13 +10,13 @@ import EditIcon from "@material-ui/icons/Edit";
 export class Timer extends Component {
   static contextType = StateContext;
 
-  // componentDidMount(){
-  //   this.forceUpdateInterval = setInterval(()=> this.forceUpdate(), 5000)
-  // }
+  componentDidMount() {
+    this.forceUpdateInterval = setInterval(() => this.forceUpdate(), 500);
+  }
 
-  // componentWillUnmount(){
-  //   clearInterval(this.forceUpdateInterval)
-  // }
+  componentWillUnmount() {
+    clearInterval(this.forceUpdateInterval);
+  }
 
   render() {
     const elapsedString = renderElapsedString(
