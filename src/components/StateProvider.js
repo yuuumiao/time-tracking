@@ -6,7 +6,7 @@ export const StateContext = React.createContext();
 export class StateProvider extends React.Component {
   state = {
     timers: [],
-    isLoading: false,
+    isLoading: true,
   };
 
   componentDidMount() {
@@ -24,7 +24,9 @@ export class StateProvider extends React.Component {
   createTimer = (timer) => {
     apiHandler
       .createOneTimer(timer)
-      .then((res) => this.setState({ timers: [...this.state.timers, res] }))
+      .then((res) =>
+        this.setState({ timers: [...this.state.timers, res], isLoading: false })
+      )
       .catch((error) => this.setState({ isLoading: false }));
   };
 
@@ -41,6 +43,7 @@ export class StateProvider extends React.Component {
               });
             } else return timer;
           }),
+          isLoading: false,
         })
       )
       .catch((error) => this.setState({ isLoading: false }));
@@ -52,6 +55,7 @@ export class StateProvider extends React.Component {
       .then(() =>
         this.setState({
           timers: this.state.timers.filter((t) => t.id !== timerId),
+          isLoading: false,
         })
       )
       .catch((error) => this.setState({ isLoading: false }));
@@ -67,6 +71,7 @@ export class StateProvider extends React.Component {
           });
         } else return timer;
       }),
+      isLoading: false,
     });
 
     const modifiedTimer = [...this.state.timers].filter(
@@ -90,6 +95,7 @@ export class StateProvider extends React.Component {
           });
         } else return timer;
       }),
+      isLoading: false,
     });
     const modifiedTimer = [...this.state.timers].filter(
       (x) => x.id === timerId
@@ -102,7 +108,6 @@ export class StateProvider extends React.Component {
 
   render() {
     const contextValue = {
-      isLoggedIn: this.state.isLoggedIn,
       isLoading: this.state.isLoading,
       timers: this.state.timers,
       createTimer: this.createTimer,
