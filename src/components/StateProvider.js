@@ -13,6 +13,7 @@ export class StateProvider extends React.Component {
     apiHandler
       .getAllTimers()
       .then((data) => {
+        console.log("api call->>>", data);
         this.setState({ timers: data, isLoading: false });
       })
       .catch((error) => {
