@@ -1,2 +1,5 @@
-@forward '../components/buttons';
-@forward '../components/nav-main';
+@import "./buttons";
+@import "./nav-main";
+@import "./icons";
+@import "./timer";
+@import "./timer-form";

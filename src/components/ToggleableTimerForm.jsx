@@ -25,7 +25,7 @@ export class ToggleableTimerForm extends Component {
             closeToggleableForm={this.closeToggleableForm}
           />
         ) : (
-          <AddIcon onClick={this.openToggleableForm} />
+          <AddIcon className="AddIcon" onClick={this.openToggleableForm} />
         )}
       </div>
     );

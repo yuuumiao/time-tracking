@@ -1,6 +1,28 @@
-@use '../abstracts/' as a;
+.MuiButton-root {
+  border-color: $color-green !important;
+  width: 100%;
+  margin-top: 1rem;
+}
 
-.MuiButton-containedPrimary {
-  background-color: a.$primaryGreen;
-  color: a.$primaryGrey;
+.Timer__buttonStop {
+  border-color: $color-orange !important;
+  width: 100%;
+}
+
+.MuiButton-root.Edit {
+  border-color: $color-blue !important;
+}
+
+.MuiButton-root.Cancel {
+  border-color: $color-red !important;
+  margin-left: 2px;
+}
+
+.TimerForm__buttons {
+  @include flexbox(row, 100%);
+  margin: 0;
+}
+
+.MuiFormControl-root.MuiTextField-root {
+  margin-top: 1rem;
 }

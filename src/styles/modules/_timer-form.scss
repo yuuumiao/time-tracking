@@ -1,0 +1,9 @@
+.TimerForm {
+  @include flexbox;
+  @include timerbox;
+}
+
+.TimerForm__inputs {
+  @include flexbox(column, 90%);
+  margin: 0 auto 2rem;
+}

@@ -1,0 +1,13 @@
+@mixin flexbox($flexDirection: column, $flexWidth: 20vw) {
+  display: flex;
+  flex-direction: $flexDirection;
+  align-items: stretch;
+  width: $flexWidth;
+  margin: 1rem auto;
+}
+
+@mixin timerbox($borderColor: $color-lightgrey) {
+  border: 1px solid $borderColor;
+  border-radius: 2%;
+  padding: 1rem 0 0;
+}

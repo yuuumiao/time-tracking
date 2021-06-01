@@ -4,7 +4,6 @@ import { StateContext } from "./StateProvider";
 import "@fontsource/roboto";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Divider from "@material-ui/core/Divider";
 
 export class TimerForm extends Component {
   static contextType = StateContext;
@@ -44,52 +43,45 @@ export class TimerForm extends Component {
 
   render() {
     return (
-      <div className="ui centered card">
-        <div className="content">
-          <div className="ui form">
-            <div className="field">
-              {/* <label htmlFor="title">Title</label>
-                  <input name="title" id="title" type='text' value={this.state.title} onChange={this.handleChange}/> */}
-              <TextField
-                name="title"
-                id="title"
-                type="text"
-                value={this.state.title}
-                onChange={this.handleChange}
-                label="Title"
-                variant="outlined"
-              />
-            </div>
-            <div className="field">
-              <TextField
-                name="project"
-                id="project"
-                type="text"
-                value={this.state.project}
-                onChange={this.handleChange}
-                label="Project"
-                variant="outlined"
-              />
-            </div>
-            <div className="ui two bottom attached buttons">
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={this.handleSubmitTimerForm}
-              >
-                {this.props.submitText}
-              </Button>
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={this.handleCancelTimerForm}
-              >
-                Cancel
-              </Button>
-            </div>
-          </div>
+      <div className="TimerForm">
+        <div className="TimerForm__inputs">
+          <TextField
+            name="title"
+            id="title"
+            type="text"
+            value={this.state.title}
+            onChange={this.handleChange}
+            label="Title"
+            variant="outlined"
+          />
+          <TextField
+            name="project"
+            id="project"
+            type="text"
+            value={this.state.project}
+            onChange={this.handleChange}
+            label="Project"
+            variant="outlined"
+          />
         </div>
-        <Divider />
+        <div className="TimerForm__buttons">
+          <Button
+            variant="outlined"
+            color="primary"
+            className={this.props.submitText}
+            onClick={this.handleSubmitTimerForm}
+          >
+            {this.props.submitText}
+          </Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            className="Cancel"
+            onClick={this.handleCancelTimerForm}
+          >
+            Cancel
+          </Button>
+        </div>
       </div>
     );
   }

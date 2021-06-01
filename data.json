@@ -1,17 +1,18 @@
 {
   "timers": [
     {
-      "runningSince": 1621855560935,
+      "runningSince": 1622476551865,
       "id": 1,
       "title": "hello",
       "project": "Adele",
-      "elapsed": 1705329
+      "elapsed": 228088829
     },
     {
       "title": "hello",
       "project": "2emee",
       "id": 2,
-      "runningSince": 1621888348021
+      "runningSince": null,
+      "elapsed": 240152092
     }
   ]
 }

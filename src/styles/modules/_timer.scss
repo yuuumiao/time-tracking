@@ -1,0 +1,31 @@
+.Timer {
+  @include flexbox;
+  @include timerbox;
+}
+
+.Timer__title {
+  font-size: 1.2rem;
+  color: black;
+  margin-left: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.Timer__project {
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  margin-top: 0.1rem;
+}
+
+.Timer__time {
+  font-weight: 900;
+  font-size: 2rem;
+  font-family: $secondary-font;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.Timer__icons {
+  text-align: end;
+  width: 95%;
+  margin: 1rem 0;
+}

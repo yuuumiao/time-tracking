@@ -6,7 +6,6 @@ import "@fontsource/roboto";
 import Button from "@material-ui/core/Button";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
-import Divider from "@material-ui/core/Divider";
 
 export class Timer extends Component {
   static contextType = StateContext;
@@ -40,8 +39,7 @@ export class Timer extends Component {
           {!!this.props.runningSince ? (
             <Button
               className="Timer__buttonStop"
-              variant="contained"
-              color="primary"
+              variant="outlined"
               onClick={() => this.context.stopTimer(this.props.id)}
             >
               Stop
@@ -49,15 +47,13 @@ export class Timer extends Component {
           ) : (
             <Button
               className="Timer__buttonStart"
-              variant="contained"
-              color="primary"
+              variant="outlined"
               onClick={() => this.context.startTimer(this.props.id)}
             >
               Start
             </Button>
           )}
         </div>
-        <Divider className="Timer__divider" />
       </div>
     );
   }
