@@ -9,6 +9,7 @@ export class EditableTimerList extends Component {
 
   render() {
     if (this.context.isLoading) return <Loading />;
+
     return (
       <div>
         {this.context.timers.map((timer) => {

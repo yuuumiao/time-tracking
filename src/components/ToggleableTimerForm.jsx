@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import TimerForm from "./TimerForm";
-
 import AddIcon from "@material-ui/icons/Add";
 
 export class ToggleableTimerForm extends Component {
