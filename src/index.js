@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import { StateProvider } from "./components/StateProvider";
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/time-tracking">
     <React.StrictMode>
       <StateProvider>
         <App />
